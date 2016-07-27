@@ -2,8 +2,6 @@ require "sinatra"
 require "sinatra/reloader"
 require "tilt/erubis"
 require "sinatra/content_for"
-# require "pry"
-# require "pry-nav"
 
 configure do
   enable :sessions
