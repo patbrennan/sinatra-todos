@@ -1,7 +1,7 @@
 <ul id="lists">
   <% sorted_lists(@lists).each do |list| %>
     <li class="<%= list_class(list) %>">
-      <a href="/lists/<%= @lists.index(list) %>">
+      <a href="/lists/<%= list[:id] %>">
         <h2><%= list[:name] %></h2>
         <p><%= completed_todos(list) %></p>
       </a>

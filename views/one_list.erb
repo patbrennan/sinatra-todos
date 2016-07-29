@@ -3,12 +3,12 @@
     <h2><%= @list[:name] %></h2>
     <ul>
       <li>
-        <form action="/lists/<%= @list_id %>/complete-all" method="post">
+        <form action="/lists/<%= @list[:id] %>/complete-all" method="post">
           <button class="check" type="submit">Complete All</button>
         </form>
       </li>
       <li>
-        <a class="edit" href="/edit/<%= @list_id %>">Edit List</a>
+        <a class="edit" href="/edit/<%= @list[:id] %>">Edit List</a>
       </li>
     </ul>
   </header>
@@ -17,13 +17,13 @@
     <% sorted_todos(@todo_list).each do |todo| %>
       <li class="<%= todo[:completed] ? 'complete' : '' %>">
 
-        <form action="/lists/<%= @list_id %>/complete/<%= @todo_list.index(todo) %>" method="post" class="check">
+        <form action="/lists/<%= @list[:id] %>/complete/<%= todo[:id] %>" method="post" class="check">
           <input type="hidden" name="completed" value="<%= !todo[:completed] %>" />
           <button type="submit">Complete</button>
         </form>
 
         <h3><%= todo[:name] %></h3>
-        <form action="/lists/<%= @list_id %>/delete/<%= @todo_list.index(todo) %>" method="post" class="delete">
+        <form action="/lists/<%= @list[:id] %>/delete/<%= todo[:id] %>" method="post" class="delete">
           <button type="submit">Delete</button>
         </form>
 
@@ -36,7 +36,7 @@
   <a class="list" href="/lists">All Lists</a>
 <% end %>
 
-<form action="/lists/<%= @list_id %>/todos" method="post">
+<form action="/lists/<%= @list[:id] %>/todos" method="post">
   <dl>
     <dt>
       <label for="todo_name">Enter a new todo:</label>
